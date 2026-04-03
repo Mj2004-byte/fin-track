@@ -585,6 +585,172 @@ td.mono { font-family: var(--fm); font-size: 12px; color: var(--text2); }
   .ai-window { width: calc(100vw - 32px); right: 16px; }
   .ai-fab { right: 16px; bottom: 16px; }
 }
+
+/* ════════════════════════════════════════
+   RESPONSIVE ADDITIONS — layout only,
+   zero logic or existing style changes
+   ════════════════════════════════════════ */
+
+/* ── Tablet landscape (≤1100px) ── */
+@media (max-width: 1100px) {
+  .sidebar { width: 200px; }
+  .topbar { padding: 0 16px; }
+  .search-wrap input { width: 120px; }
+  .upi-hero { padding: 22px; gap: 18px; }
+  .upi-hero-text h2 { font-size: 18px; }
+}
+
+/* ── Tablet portrait (≤860px) ── */
+@media (max-width: 860px) {
+  /* topbar: hide breadcrumb sub-text to save width */
+  .topbar-sep,
+  .topbar-sub { display: none; }
+
+  /* search bar gets a bit narrower */
+  .search-wrap input { width: 100px; }
+
+  /* page head: allow wrap on small screens */
+  .page-head { margin-bottom: 16px; }
+  .page-head h1 { font-size: 19px; }
+
+  /* charts: single column already handled above; tighten chart height */
+  .chart-box { height: 170px; }
+
+  /* UPI hero: tighten on tablet */
+  .upi-hero { padding: 20px 16px; }
+  .upi-icon-big { width: 56px; height: 56px; font-size: 26px; border-radius: 14px; }
+  .upi-hero-text h2 { font-size: 17px; }
+  .upi-hero-text p { font-size: 13px; }
+
+  /* table: hide less-critical columns */
+  table thead th:nth-child(4),
+  table tbody td:nth-child(4) { display: none; } /* Type column */
+
+  /* table toolbar: make filters wrap nicely */
+  .table-toolbar { gap: 6px; }
+  .select-field, .date-field { font-size: 12px; padding: 5px 8px; }
+
+  /* stat card: tighter padding */
+  .stat-card { padding: 13px 14px; }
+  .stat-card-value { font-size: 17px; }
+
+  /* OTP row: smaller boxes so they fit */
+  .otp-input { width: 42px; height: 46px; font-size: 18px; }
+  .otp-row { gap: 7px; }
+
+  /* phone row: stack on very small tablets */
+  .phone-row { flex-wrap: wrap; }
+  .phone-row .field-input { min-width: 0; flex: 1; }
+}
+
+/* ── Mobile (≤600px) ── */
+@media (max-width: 600px) {
+  /* topbar */
+  .topbar { padding: 0 12px; gap: 8px; height: 48px; }
+  .topbar-title { font-size: 13px; }
+
+  /* hide search bar on mobile; use transactions page search instead */
+  .search-wrap { display: none; }
+
+  /* page */
+  .page { padding: 12px; }
+  .page-head { margin-bottom: 14px; }
+  .page-head h1 { font-size: 18px; }
+  .page-head p { font-size: 12px; }
+
+  /* stat cards: 2 columns on mobile to avoid too much scrolling */
+  .stats-row { grid-template-columns: repeat(2, 1fr); gap: 8px; margin-bottom: 12px; }
+  .stat-card { padding: 12px; }
+  .stat-card-value { font-size: 15px; }
+  .stat-card-label { font-size: 11px; margin-bottom: 6px; }
+  .stat-card-sub { font-size: 10.5px; }
+
+  /* insights grid stays 1-col (already set above) */
+  .insights-grid { gap: 8px; margin-bottom: 12px; }
+
+  /* charts */
+  .charts-row { gap: 10px; margin-bottom: 12px; }
+  .chart-box { height: 150px; }
+
+  /* spending breakdown: stack donut + legend */
+  .card > div[style*="display:flex"][style*="gap:14"] {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  /* table card toolbar: scroll horizontally if filters overflow */
+  .table-toolbar { overflow-x: auto; flex-wrap: nowrap; padding: 10px 12px; }
+  .table-toolbar-right { flex-shrink: 0; }
+  .select-field, .date-field { flex-shrink: 0; font-size: 12px; }
+
+  /* table: hide extra columns on mobile */
+  table thead th:nth-child(3),
+  table tbody td:nth-child(3) { display: none; } /* Category column */
+  table thead th:nth-child(4),
+  table tbody td:nth-child(4) { display: none; } /* Type column */
+  td { padding: 9px 10px; font-size: 12px; }
+  thead th { padding: 9px 10px; }
+
+  /* modal: full width */
+  .overlay { padding: 12px; }
+  .modal { padding: 18px; border-radius: 10px; }
+  .field-row { grid-template-columns: 1fr; gap: 0; }
+
+  /* UPI page */
+  .upi-hero { padding: 16px; border-radius: 12px; gap: 14px; }
+  .upi-hero-text h2 { font-size: 16px; }
+  .upi-hero-text p { font-size: 12.5px; }
+  .upi-icon-big { width: 50px; height: 50px; font-size: 22px; }
+  .upi-steps-grid { gap: 10px; margin-bottom: 14px; }
+  .upi-step { padding: 14px; }
+  .phone-input-card { padding: 16px; }
+  .phone-row { flex-direction: column; gap: 8px; }
+  .phone-prefix { width: fit-content; }
+  .otp-row { gap: 6px; flex-wrap: wrap; }
+  .otp-input { width: 40px; height: 44px; font-size: 17px; }
+  .perms-card { padding: 14px; }
+  .perm-item { padding: 10px; gap: 10px; }
+  .sms-item { padding: 10px 12px; gap: 10px; }
+
+  /* AI window: taller on mobile, attach to bottom edge */
+  .ai-window {
+    bottom: 80px;
+    right: 12px;
+    left: 12px;
+    width: auto;
+    max-height: 70vh;
+    border-radius: 14px;
+  }
+  .ai-fab { right: 14px; bottom: 14px; width: 50px; height: 50px; border-radius: 14px; }
+
+  /* chips: scroll horizontally */
+  .chips { flex-wrap: nowrap; overflow-x: auto; padding-bottom: 4px; }
+  .chips::-webkit-scrollbar { display: none; }
+
+  /* page-head row layout for transactions */
+  .page-head[style] { flex-direction: column; align-items: flex-start !important; gap: 8px !important; }
+
+  /* health grid */
+  .health-grid { grid-template-columns: 1fr 1fr; gap: 12px; }
+
+  /* buttons: make sure they don't overflow */
+  .btn { font-size: 12px; padding: 6px 11px; }
+  .btn-sm { padding: 5px 9px; font-size: 11px; }
+
+  /* sidebar footer role row */
+  .role-row { padding: 7px 8px; }
+}
+
+/* ── Very small phones (≤380px) ── */
+@media (max-width: 380px) {
+  .stats-row { grid-template-columns: 1fr; }
+  .otp-row { gap: 5px; }
+  .otp-input { width: 36px; height: 40px; font-size: 16px; border-radius: 7px; }
+  .ai-window { max-height: 65vh; }
+  .health-grid { grid-template-columns: 1fr; }
+  .topbar { height: 46px; }
+  .page { padding: 10px; }
+}
 </style>
 </head>
 <body>
@@ -1122,7 +1288,7 @@ function UPIAutomation(){
         <h2>Link your phone number</h2>
         <p>FinTrack reads your UPI & bank SMS alerts and automatically categorises every transaction. No bank login needed — just your registered mobile number.</p>
         {s.upiConnected && (
-          <div style={{marginTop:12,display:'flex',alignItems:'center',gap:10}}>
+          <div style={{marginTop:12,display:'flex',alignItems:'center',gap:10,flexWrap:'wrap'}}>
             <span className="status-pill status-active">
               <span className="status-dot status-dot-active"/>
               Active — +91 {s.upiPhone}

@@ -11,7 +11,7 @@ Finny AI	Chat with your personal AI finance advisor powered by Claude
 Dark mode	Full light/dark theme support
 Responsive	Works on mobile, tablet, and desktop
 ---
-🚀 Deploy to Vercel (Zero Config)
+ Deploy to Vercel (Zero Config)
 Option 1 — Vercel CLI
 ```bash
 npm i -g vercel
