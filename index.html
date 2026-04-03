@@ -103,6 +103,17 @@ html, body, #root { height: 100%; }
   position: relative; overflow: hidden;
   animation: splashPulse 2s ease-in-out infinite;
 }
+.splash-logo-wrap {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+  text-align: center;
+}
+.splash-wordmark{
+  text-align: center;
+  width: 100%;
+}
 @keyframes splashPulse {
   0%, 100% { box-shadow: 0 0 0 1px rgba(255,255,255,0.1), 0 20px 60px rgba(8,145,178,0.35), 0 8px 24px rgba(0,0,0,0.4); }
   50%       { box-shadow: 0 0 0 1px rgba(255,255,255,0.15), 0 24px 70px rgba(8,145,178,0.5), 0 8px 24px rgba(0,0,0,0.4); }
@@ -768,7 +779,7 @@ td.mono { font-family: var(--fm); font-size: 12px; color: var(--text2); }
       </svg>
     </div>
     <div>
-      <div class="splash-wordmark">Fin<em>Track</em></div>
+      <div class="splash-wordmark">      Fin<em>Track</em></div>
       <div class="splash-tagline">Smart money, clear mind</div>
     </div>
     <div class="splash-bar-wrap">
